@@ -39,7 +39,7 @@ function CreateContactModal({ isOpen, onClose, onContactCreated }: { isOpen: boo
         }
 
         try {
-            const res = await fetch("http://localhost:5000/api/createContact", {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/createContact`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -265,7 +265,7 @@ async function handleDelete(onDeleted: () => void) {
             alert("No contacts selected for deletion.");
             return;
         }
-        const res = await fetch('http://localhost:5000/api/deleteContacts', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/deleteContacts`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -315,7 +315,7 @@ export default function Page() {
 
     const fetchContacts = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/contacts', {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contacts`, {
                 credentials: 'include',
             });
             if (!res.ok) throw new Error('Failed to fetch contacts');
@@ -362,7 +362,7 @@ export default function Page() {
             const formData = new FormData();
             formData.append('file', file);
 
-            const res = await fetch('http://localhost:5000/upload/users-file', {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload/users-file`, {
                 method: 'POST',
                 credentials: 'include',
                 body: formData,
@@ -406,7 +406,7 @@ export default function Page() {
 
     const handleExportContacts = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/contacts/export', {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contacts/export`, {
                 method: 'GET',
                 credentials: 'include',
             });

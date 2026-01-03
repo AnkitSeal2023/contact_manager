@@ -49,7 +49,7 @@ function handleSignedNewUser(
     if (status === "authenticated" && session?.user) {
         console.log("status in check:", status);
         // Send user info to backend
-        fetch("http://localhost:5000/api/newuser", {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/newuser`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: "include",
