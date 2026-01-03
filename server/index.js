@@ -41,7 +41,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://contact-manager-xi-henna.vercel.app",
+      "https://contactmanager-dusky.vercel.app",
       "https://contact-manager-mu0c.onrender.com"
     ],
     credentials: true,
