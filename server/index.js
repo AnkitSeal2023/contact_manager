@@ -39,7 +39,11 @@ const PORT = process.env.PORT || 5000;
 // CORS configuration
 app.use(
   cors({
-    origin: "http://localhost:3000, https://contact-manager-xi-henna.vercel.app/",
+    origin: [
+      "http://localhost:3000",
+      "https://contact-manager-xi-henna.vercel.app",
+      "https://contact-manager-mu0c.onrender.com"
+    ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
